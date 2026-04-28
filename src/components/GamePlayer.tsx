@@ -25,7 +25,7 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
         <div className="glass-panel flex items-center justify-between px-6 py-3 border-b border-white/5">
           <div className="flex items-center gap-3">
             <img 
-              src={`/thumbs/${game.thumbnail}`} 
+              src={`/data/thumbs/${game.thumbnail}`} 
               alt={game.title} 
               className="w-10 h-10 rounded-lg object-cover border border-odyssey-accent/30"
               onError={(e) => {

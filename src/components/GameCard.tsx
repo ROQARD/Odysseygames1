@@ -14,13 +14,21 @@ export default function GameCard({ game, onClick }: GameCardProps) {
       className="group relative bg-odyssey-card rounded-2xl overflow-hidden border border-white/5 hover:border-odyssey-accent/50 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-odyssey-accent/20"
       onClick={() => onClick(game)}
     >
-      <div className="aspect-video relative overflow-hidden">
+      <div className="aspect-video relative overflow-hidden bg-odyssey-card">
         <img
-          src={`/thumbs/${game.thumbnail}`}
+          src={`/data/thumbs/${game.thumbnail}`}
           alt={game.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = `https://placehold.co/600x400/0D0D25/f59e0b?text=${game.title}`;
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            if (target.parentElement) {
+              target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'bg-gradient-to-br', 'from-odyssey-card', 'to-odyssey-bg');
+              const fallback = document.createElement('div');
+              fallback.className = 'text-odyssey-accent font-display font-black text-2xl uppercase tracking-tighter text-center px-4';
+              fallback.innerText = game.title;
+              target.parentElement.appendChild(fallback);
+            }
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-odyssey-bg via-transparent to-transparent opacity-60" />

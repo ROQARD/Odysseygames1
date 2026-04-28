@@ -13,11 +13,11 @@ export default function Hero({ game, onPlay }: HeroProps) {
       {/* Background Image/Gradient */}
       <div className="absolute inset-0">
         <img 
-          src={`/thumbs/${game.thumbnail}`} 
+          src={`/data/thumbs/${game.thumbnail}`} 
           alt={game.title} 
           className="w-full h-full object-cover scale-105 blur-sm opacity-40 transition-transform duration-[2s] group-hover:scale-110"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80`;
+            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80';
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-odyssey-bg via-odyssey-bg/70 to-transparent" />
