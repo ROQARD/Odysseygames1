@@ -4,7 +4,7 @@
     "url": "https://play2048.co/",
     "thumbnail": "2048.webp"
 
-    <iframe id="game" title="2048 Game" src="https://www.hoodamath.com/mobile/games/2048-game/game.html?nocheckorient=1" scrolling="no" allow="autoplay; fullscreen" style="width:748px;height:500px;margin:0;border:0;padding:0;"></iframe>
+ 
     
   },
   {
