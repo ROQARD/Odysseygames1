@@ -1,0 +1,51 @@
+import { motion } from 'motion/react';
+import { Play } from 'lucide-react';
+import { Game } from '../types';
+
+interface GameCardProps {
+  game: Game;
+  onClick: (game: Game) => void;
+}
+
+export default function GameCard({ game, onClick }: GameCardProps) {
+  return (
+    <motion.div
+      whileHover={{ y: -8, scale: 1.02 }}
+      className="group relative bg-odyssey-card rounded-2xl overflow-hidden border border-white/5 hover:border-odyssey-accent/50 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-odyssey-accent/20"
+      onClick={() => onClick(game)}
+    >
+      <div className="aspect-video relative overflow-hidden">
+        <img
+          src={`/thumbs/${game.thumbnail}`}
+          alt={game.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = `https://placehold.co/600x400/0D0D25/f59e0b?text=${game.title}`;
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-odyssey-bg via-transparent to-transparent opacity-60" />
+        
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="bg-odyssey-accent p-4 rounded-full neon-glow">
+            <Play className="text-black fill-black w-6 h-6 ml-1" />
+          </div>
+        </div>
+        
+        <div className="absolute top-3 left-3">
+          <span className="px-2 py-1 bg-odyssey-accent/80 backdrop-blur-md rounded text-[10px] font-bold uppercase tracking-wider text-black">
+            {game.category}
+          </span>
+        </div>
+      </div>
+
+      <div className="p-4">
+        <h3 className="text-lg font-display font-semibold text-white group-hover:text-odyssey-cyan transition-colors truncate">
+          {game.title}
+        </h3>
+        <p className="text-xs text-gray-400 mt-1 line-clamp-1">
+          {game.description}
+        </p>
+      </div>
+    </motion.div>
+  );
+}

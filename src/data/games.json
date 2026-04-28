@@ -1,0 +1,66 @@
+[
+  {
+    "id": "2048",
+    "title": "2048",
+    "url": "https://play2048.co/",
+    "thumbnail": "2048.webp",
+    "category": "Puzzle",
+    "description": "Join the numbers and get to the 2048 tile!"
+  },
+  {
+    "id": "hextris",
+    "title": "Hextris",
+    "url": "https://hextris.io/",
+    "thumbnail": "hextris.webp",
+    "category": "Arcade",
+    "description": "Fast-paced puzzle game inspired by Tetris."
+  },
+  {
+    "id": "paper-io-2",
+    "title": "Paper.io 2",
+    "url": "https://paper-io.com/",
+    "thumbnail": "paperio2.webp",
+    "category": "IO Games",
+    "description": "Conquer as much territory as possible."
+  },
+  {
+    "id": "dino-run",
+    "title": "Dino Run",
+    "url": "https://chromedino.com/",
+    "thumbnail": "dinorun.webp",
+    "category": "Classic",
+    "description": "The classic offline chrome dino game."
+  },
+  {
+    "id": "little-alchemy",
+    "title": "Little Alchemy",
+    "url": "https://littlealchemy.com/",
+    "thumbnail": "littlealchemy.webp",
+    "category": "Puzzle",
+    "description": "Combine elements to create new items."
+  },
+  {
+    "id": "slope",
+    "title": "Slope",
+    "url": "https://kripeshadwani.com/slope-game/",
+    "thumbnail": "slope.webp",
+    "category": "Arcade",
+    "description": "Navigate a ball down a treacherous slope."
+  },
+  {
+    "id": "vex-3",
+    "title": "Vex 3",
+    "url": "https://www.agame.com/game/vex-3",
+    "thumbnail": "vex3.webp",
+    "category": "Platformer",
+    "description": "Challenging platformer with parkour elements."
+  },
+  {
+    "id": "cookie-clicker",
+    "title": "Cookie Clicker",
+    "url": "https://orteil.dashnet.org/cookieclicker/",
+    "thumbnail": "cookieclicker.webp",
+    "category": "Idle",
+    "description": "The original idle clicker game."
+  }
+]
