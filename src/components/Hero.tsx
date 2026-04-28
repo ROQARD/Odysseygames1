@@ -56,7 +56,7 @@ export default function Hero({ game, onPlay }: HeroProps) {
           transition={{ delay: 0.2 }}
           className="text-sm md:text-base text-gray-300 mb-6 md:mb-10 line-clamp-2 max-w-lg"
         >
-          {game.description} Embark on a pixel-perfect journey. Revisit the classics or find your new addiction. The odyssey begins with a single click.
+          Embark on a pixel-perfect journey. Revisit the classics or find your new addiction. The odyssey begins with a single click.
         </motion.p>
 
         <motion.div

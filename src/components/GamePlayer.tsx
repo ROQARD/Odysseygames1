@@ -34,7 +34,6 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
             />
             <div>
               <h2 className="text-lg font-display font-bold text-white tracking-tight">{game.title}</h2>
-              <span className="text-[10px] text-odyssey-cyan font-semibold uppercase tracking-wider">{game.category}</span>
             </div>
           </div>
 

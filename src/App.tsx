@@ -5,31 +5,31 @@
 
 import { useState, useMemo } from 'react';
 import Navbar from './components/Navbar';
-import CategoryBar from './components/CategoryBar';
 import Hero from './components/Hero';
 import GameGrid from './components/GameGrid';
 import GamePlayer from './components/GamePlayer';
-import gamesData from './data/games.json';
-import { Game, Category } from './types';
+import gamesDataRaw from './data/games.json';
+import { Game } from './types';
 import { motion } from 'motion/react';
+
+const gamesData = (gamesDataRaw as Game[]).map(game => ({
+  ...game,
+  id: game.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+}));
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<Category>('All');
-  const [selectedGame, setSelectedGame] = useState<Game | null>(null);
+  const [selectedGame, setSelectedGame] = useState<typeof gamesData[0] | null>(null);
 
   const filteredGames = useMemo(() => {
     return gamesData.filter((game) => {
-      const matchesSearch = game.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          game.description.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = activeCategory === 'All' || game.category === activeCategory;
-      return matchesSearch && matchesCategory;
+      const matchesSearch = game.title.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesSearch;
     });
-  }, [searchQuery, activeCategory]);
+  }, [searchQuery]);
 
   const featuredGame = useMemo(() => {
-    // Pick 2048 as the default featured game or just the first one
-    return gamesData.find(g => g.id === '2048') || gamesData[0];
+    return gamesData[0];
   }, []);
 
   return (
@@ -37,8 +37,7 @@ export default function App() {
       <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       
       <main className="max-w-7xl mx-auto mt-8">
-        {/* Only show Hero if no active search or category filter */}
-        {!searchQuery && activeCategory === 'All' && (
+        {!searchQuery && (
           <Hero game={featuredGame} onPlay={setSelectedGame} />
         )}
 
@@ -58,8 +57,6 @@ export default function App() {
               </span>
             </div>
           </div>
-
-          <CategoryBar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
 
           <div className="-mx-6">
             <GameGrid games={filteredGames} onGameSelect={setSelectedGame} />

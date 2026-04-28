@@ -38,21 +38,12 @@ export default function GameCard({ game, onClick }: GameCardProps) {
             <Play className="text-black fill-black w-6 h-6 ml-1" />
           </div>
         </div>
-        
-        <div className="absolute top-3 left-3">
-          <span className="px-2 py-1 bg-odyssey-accent/80 backdrop-blur-md rounded text-[10px] font-bold uppercase tracking-wider text-black">
-            {game.category}
-          </span>
-        </div>
       </div>
 
       <div className="p-4">
         <h3 className="text-lg font-display font-semibold text-white group-hover:text-odyssey-cyan transition-colors truncate">
           {game.title}
         </h3>
-        <p className="text-xs text-gray-400 mt-1 line-clamp-1">
-          {game.description}
-        </p>
       </div>
     </motion.div>
   );

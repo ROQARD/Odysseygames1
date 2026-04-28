@@ -1,10 +1,10 @@
 import { motion } from 'motion/react';
-import { Game } from '../types';
+import { GameWithId } from '../types';
 import GameCard from './GameCard';
 
 interface GameGridProps {
-  games: Game[];
-  onGameSelect: (game: Game) => void;
+  games: GameWithId[];
+  onGameSelect: (game: GameWithId) => void;
 }
 
 export default function GameGrid({ games, onGameSelect }: GameGridProps) {
