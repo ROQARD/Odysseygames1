@@ -3,86 +3,83 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import GameGrid from './components/GameGrid';
+import Home from './pages/Home';
+import About from './pages/About';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
+import Cookies from './pages/Cookies';
+import Disclaimer from './pages/Disclaimer';
+import Contact from './pages/Contact';
+import FAQ from './pages/FAQ';
 import GamePlayer from './components/GamePlayer';
-import gamesDataRaw from './data/games.json';
-import { Game } from './types';
-import { motion } from 'motion/react';
-
-const gamesData = (gamesDataRaw as Game[]).map(game => ({
-  ...game,
-  id: game.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-}));
+import { GameWithId } from './types';
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedGame, setSelectedGame] = useState<typeof gamesData[0] | null>(null);
-
-  const filteredGames = useMemo(() => {
-    return gamesData.filter((game) => {
-      const matchesSearch = game.title.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesSearch;
-    });
-  }, [searchQuery]);
-
-  const featuredGame = useMemo(() => {
-    return gamesData[0];
-  }, []);
+  const [selectedGame, setSelectedGame] = useState<GameWithId | null>(null);
 
   return (
-    <div className="min-h-screen bg-odyssey-bg text-white pb-20">
-      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      
-      <main className="max-w-7xl mx-auto mt-8">
-        {!searchQuery && (
-          <Hero game={featuredGame} onPlay={setSelectedGame} />
-        )}
+    <BrowserRouter>
+      <div className="min-h-screen bg-odyssey-bg text-gray-900 pb-20">
+        <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        
+        <main className="max-w-7xl mx-auto mt-8">
+          <Routes>
+            <Route path="/" element={<Home searchQuery={searchQuery} onPlay={setSelectedGame} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/cookies" element={<Cookies />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<FAQ />} />
+          </Routes>
+        </main>
 
-        <div className="space-y-8 px-6">
-          <div className="flex items-center justify-between">
-            <motion.h2 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="text-2xl md:text-4xl font-display font-black tracking-tight"
-            >
-              MISSION <span className="text-odyssey-accent font-light">SELECTOR</span>
-            </motion.h2>
+        <footer className="mt-20 border-t border-gray-200/60 pt-16 pb-12 px-6">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-left">
+            <div className="md:col-span-2 space-y-4">
+              <Link to="/" className="text-xl font-display font-black text-odyssey-accent tracking-[0.2em] uppercase">ODYSSEY GAMES</Link>
+              <p className="text-sm text-gray-500 max-w-sm font-sans leading-relaxed">
+                The ultimate destination for instant-play web games. Our mission is to provide high-quality, fun experiences without the need for downloads or installations.
+              </p>
+            </div>
             
-            <div className="hidden md:block">
-              <span className="text-[10px] text-gray-500 font-mono tracking-[0.3em] uppercase">
-                {filteredGames.length} AVAILABLE EXPEDITIONS
-              </span>
+            <div>
+              <h4 className="text-xs font-mono font-bold text-gray-900 uppercase tracking-widest mb-6">Legal</h4>
+              <ul className="space-y-3">
+                <li><Link to="/terms" className="text-sm text-gray-500 hover:text-odyssey-accent transition-colors">Terms of Service</Link></li>
+                <li><Link to="/privacy" className="text-sm text-gray-500 hover:text-odyssey-accent transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/cookies" className="text-sm text-gray-500 hover:text-odyssey-accent transition-colors">Cookie Policy</Link></li>
+                <li><Link to="/disclaimer" className="text-sm text-gray-500 hover:text-odyssey-accent transition-colors">Disclaimer</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-mono font-bold text-gray-900 uppercase tracking-widest mb-6">Connect</h4>
+              <ul className="space-y-3">
+                <li><Link to="/about" className="text-sm text-gray-500 hover:text-odyssey-accent transition-colors">About Us</Link></li>
+                <li><Link to="/contact" className="text-sm text-gray-500 hover:text-odyssey-accent transition-colors">Contact</Link></li>
+                <li><Link to="/faq" className="text-sm text-gray-500 hover:text-odyssey-accent transition-colors">FAQ Support</Link></li>
+                <li><a href="https://discord.gg/TFGkuNquG" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-odyssey-accent transition-colors">Discord Community</a></li>
+              </ul>
             </div>
           </div>
 
-          <div className="-mx-6">
-            <GameGrid games={filteredGames} onGameSelect={setSelectedGame} />
+          <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-200/40 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-[10px] text-gray-400 uppercase tracking-[0.3em] font-mono">
+              © 2026 ODYSSEY ARCADE
+            </p>
           </div>
-        </div>
-      </main>
+        </footer>
 
-      <footer className="mt-20 border-t border-white/5 pt-12 pb-8 px-6 text-center">
-        <div className="max-w-4xl mx-auto space-y-4">
-          <h3 className="text-xl font-display font-black text-odyssey-accent tracking-[0.2em] uppercase">ODYSSEY GAMES</h3>
-          <p className="text-sm text-gray-500 max-w-xl mx-auto font-sans leading-relaxed">
-            Your destination for high-octane expeditions. Play the best web games on any device, anywhere. No installation required. Discover your next classic.
-          </p>
-          <div className="flex items-center justify-center gap-6 pt-4">
-            <a href="#" className="font-mono text-[10px] text-gray-400 hover:text-odyssey-accent transition-colors tracking-widest uppercase">Privacy</a>
-            <a href="#" className="font-mono text-[10px] text-gray-400 hover:text-odyssey-accent transition-colors tracking-widest uppercase">Terms</a>
-            <a href="#" className="font-mono text-[10px] text-gray-400 hover:text-odyssey-accent transition-colors tracking-widest uppercase">Support</a>
-          </div>
-          <p className="text-[9px] text-gray-600 pt-8 uppercase tracking-[0.3em] font-mono">
-            © 2026 ODYSSEY ARCADE SYSTEMS // ALL SYSTEMS NOMINAL.
-          </p>
-        </div>
-      </footer>
-
-      {/* Game Player Modal */}
-      <GamePlayer game={selectedGame} onClose={() => setSelectedGame(null)} />
-    </div>
+        {/* Game Player Modal */}
+        <GamePlayer game={selectedGame} onClose={() => setSelectedGame(null)} />
+      </div>
+    </BrowserRouter>
   );
 }
+

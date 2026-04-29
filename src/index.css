@@ -5,32 +5,31 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
   
-  --color-odyssey-bg: #02040a;
-  --color-odyssey-card: #0a0f1d;
-  --color-odyssey-accent: #f59e0b; /* Gold */
-  --color-odyssey-cyan: #22d3ee;
-  --color-odyssey-gold: #fbbf24;
+  --color-odyssey-bg: #F0F9FF; /* Light sky blue bg */
+  --color-odyssey-card: #FFFFFF;
+  --color-odyssey-accent: #0EA5E9; /* Fun Sky Blue */
+  --color-odyssey-cyan: #38BDF8;
+  --color-odyssey-gold: #BAE6FD;
 }
 
 body {
   background-color: var(--color-odyssey-bg);
-  color: #FFFFFF;
+  color: #0F172A;
   font-family: var(--font-sans);
 }
 
 .neon-glow {
-  box-shadow: 0 0 10px var(--color-odyssey-accent), 0 0 20px var(--color-odyssey-accent);
+  box-shadow: 0 8px 16px rgba(255, 61, 113, 0.2);
 }
 
 .neon-border {
-  border: 1px solid var(--color-odyssey-accent);
-  box-shadow: inset 0 0 5px var(--color-odyssey-accent), 0 0 5px var(--color-odyssey-accent);
+  border: 2px solid var(--color-odyssey-accent);
 }
 
 .glass-panel {
-  background: rgba(10, 15, 29, 0.7);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* Custom scrollbar */

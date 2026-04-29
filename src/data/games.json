@@ -1,11 +1,8 @@
-[ 
+[
   {
     "title": "2048",
-    "url":   "https://www.hoodamath.com/mobile/games/2048-game/game.html?nocheckorient=1" ,
-    "thumbnail": "2048.webp"   
-
- 
-    
+    "url": "https://play2048.co/",
+    "thumbnail": "2048.webp"
   },
   {
     "title": "Hextris",

@@ -22,52 +22,53 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
         className="fixed inset-0 z-[100] flex flex-col bg-odyssey-bg"
       >
         {/* Header */}
-        <div className="glass-panel flex items-center justify-between px-6 py-3 border-b border-white/5">
+        <div className="glass-panel flex items-center justify-between px-6 py-3 border-b border-gray-200/50">
           <div className="flex items-center gap-3">
             <img 
               src={`/data/thumbs/${game.thumbnail}`} 
               alt={game.title} 
-              className="w-10 h-10 rounded-lg object-cover border border-odyssey-accent/30"
+              className="w-10 h-10 rounded-xl object-cover border border-gray-200/50 shadow-sm"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = `https://placehold.co/100x100/0D0D25/f59e0b?text=${game.title[0]}`;
+                (e.target as HTMLImageElement).src = `https://placehold.co/100x100/EDF2F7/FF3D71?text=${game.title[0]}`;
               }}
             />
             <div>
-              <h2 className="text-lg font-display font-bold text-white tracking-tight">{game.title}</h2>
+              <h2 className="text-lg font-display font-black text-gray-900 tracking-tight">{game.title}</h2>
+              <span className="text-[10px] text-odyssey-accent font-bold uppercase tracking-widest">LIVE SESSION</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <button 
               onClick={() => window.location.reload()}
-              className="p-2 text-gray-400 hover:text-white transition-colors"
+              className="p-2 text-gray-500 hover:text-gray-900 transition-colors"
               title="Reload Game"
             >
               <RotateCcw className="w-5 h-5" />
             </button>
             <button 
               onClick={() => setIsFullscreen(!isFullscreen)}
-              className="p-2 text-gray-400 hover:text-white transition-colors"
+              className="p-2 text-gray-500 hover:text-gray-900 transition-colors"
               title="Full Screen"
             >
               <Maximize2 className="w-5 h-5" />
             </button>
-            <div className="w-px h-6 bg-white/10 mx-2" />
+            <div className="w-px h-6 bg-gray-200/80 mx-2" />
             <button 
               onClick={onClose}
-              className="group p-2 bg-odyssey-accent/20 hover:bg-odyssey-accent rounded-full transition-all duration-300"
+              className="group p-2 bg-gray-200/50 hover:bg-odyssey-accent rounded-xl transition-all duration-300 shadow-sm"
             >
-              <X className="w-6 h-6 text-odyssey-accent group-hover:text-white" />
+              <X className="w-6 h-6 text-gray-400 group-hover:text-white" />
             </button>
           </div>
         </div>
 
         {/* Iframe Area */}
-        <div className={`flex-1 relative bg-black ${isFullscreen ? 'p-0' : 'p-4 md:p-8'}`}>
+        <div className={`flex-1 relative bg-sky-100/50 ${isFullscreen ? 'p-0' : 'p-4 md:p-8'}`}>
           <div className="w-full h-full relative flex items-center justify-center">
             <iframe
               src={game.url}
-              className={`w-full h-full rounded-2xl shadow-2xl border border-white/5 ${isFullscreen ? 'rounded-none border-none' : ''}`}
+              className={`w-full h-full rounded-3xl shadow-2xl border-none ${isFullscreen ? 'rounded-none' : ''}`}
               allowFullScreen
               title={game.title}
             />
@@ -76,9 +77,9 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
         
         {/* Footer info/controls */}
         {!isFullscreen && (
-          <div className="glass-panel p-4 text-center border-t border-white/5">
-            <p className="text-sm text-gray-400 uppercase tracking-widest font-mono">
-              Exploring on <span className="text-odyssey-accent font-bold">ODYSSEY GAMES</span>
+          <div className="glass-panel p-4 text-center border-t border-gray-200/50">
+            <p className="text-sm text-gray-400 uppercase tracking-widest font-mono font-bold">
+              Playing on <span className="text-odyssey-accent">ODYSSEY</span>
             </p>
           </div>
         )}
