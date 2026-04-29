@@ -1,18 +1,7 @@
 [
   {
-    "label": "About Us",
-    "url": "/about"
+    "label": "Coming Soon",
+    "url": ""
   },
-  {
-    "label": "Latest Updates",
-    "url": "/updates"
-  },
-  {
-    "label": "Submit a Game",
-    "url": "/submit"
-  },
-  {
-    "label": "Partners",
-    "url": "/partners"
-  }
+  
 ]
