@@ -32,7 +32,7 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
               <ChevronLeft className="w-6 h-6" />
             </button>
             <img 
-              src={`/data/thumbs/${game.thumbnail}`} 
+              src={`https://roqard.github.io/icons/${game.thumbnail}`} 
               alt={game.title} 
               className="w-10 h-10 rounded-xl object-cover border border-gray-200/50 shadow-sm"
               onError={(e) => {

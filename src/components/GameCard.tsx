@@ -16,7 +16,7 @@ export default function GameCard({ game, onClick }: GameCardProps) {
     >
       <div className="aspect-video relative overflow-hidden bg-sky-50">
         <img
-          src={`/data/thumbs/${game.thumbnail}`}
+          src={`https://roqard.github.io/icons/${game.thumbnail}`}
           alt={game.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           onError={(e) => {
