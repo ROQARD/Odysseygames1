@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Maximize2, RotateCcw, ChevronLeft } from 'lucide-react';
+import { X, Maximize2, RotateCcw, ExternalLink, ChevronLeft } from 'lucide-react';
 import { Game } from '../types';
 import { useState } from 'react';
 
@@ -46,6 +46,15 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
           </div>
 
           <div className="flex items-center gap-2">
+            <a
+              href={game.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-gray-500 hover:text-odyssey-accent transition-colors"
+              title="Open in New Tab"
+            >
+              <ExternalLink className="w-5 h-5" />
+            </a>
             <button 
               onClick={() => window.location.reload()}
               className="p-2 text-gray-500 hover:text-gray-900 transition-colors"
@@ -79,7 +88,6 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
               allow="autoplay; fullscreen; keyboard-lock; gamepad"
               allowFullScreen
               title={game.title}
-              referrerPolicy="no-referrer"
             />
           </div>
         </div>
