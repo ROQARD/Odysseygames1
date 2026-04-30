@@ -72,7 +72,7 @@ function AppContent() {
 
         <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-200/40 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[10px] text-gray-400 uppercase tracking-[0.3em] font-mono">
-            © 2026 ODYSSEY ARCADE
+            © 2026 ODYSSEY GAMES
           </p>
         </div>
       </footer>

@@ -25,7 +25,7 @@ export default function Home({ searchQuery, onPlay }: HomeProps) {
     <div className="space-y-8 px-6">
       <div className="flex items-center justify-between">
         <h2 className="text-3xl font-display font-black tracking-tight text-gray-900">
-          Arcade <span className="text-odyssey-accent">Library</span>
+          Games <span className="text-odyssey-accent">Library</span>
         </h2>
         <div className="hidden md:block">
           <span className="text-[10px] text-gray-400 font-mono tracking-[0.3em] uppercase">

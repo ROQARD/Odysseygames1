@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Maximize2, RotateCcw, ExternalLink, ChevronLeft } from 'lucide-react';
+import { X, Maximize2, RotateCcw, ChevronLeft } from 'lucide-react';
 import { Game } from '../types';
 import { useState } from 'react';
 
@@ -27,7 +27,7 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
             <button 
               onClick={onClose}
               className="p-2 -ml-2 text-gray-500 hover:text-gray-900 transition-colors"
-              title="Back to Arcade"
+              title="Back to Games"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -46,15 +46,6 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
           </div>
 
           <div className="flex items-center gap-2">
-            <a
-              href={game.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-gray-500 hover:text-odyssey-accent transition-colors"
-              title="Open in New Tab"
-            >
-              <ExternalLink className="w-5 h-5" />
-            </a>
             <button 
               onClick={() => window.location.reload()}
               className="p-2 text-gray-500 hover:text-gray-900 transition-colors"
@@ -95,9 +86,6 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
         {/* Footer info/controls */}
         {!isFullscreen && (
           <div className="glass-panel p-4 text-center border-t border-gray-200/50">
-            <p className="text-sm text-gray-400 uppercase tracking-widest font-mono font-bold">
-              Playing on <span className="text-odyssey-accent">ODYSSEY</span>
-            </p>
           </div>
         )}
       </motion.div>

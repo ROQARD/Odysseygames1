@@ -25,7 +25,7 @@ export default function GameDetails() {
           onClick={() => navigate('/')}
           className="px-6 py-2 bg-odyssey-accent text-white rounded-xl font-bold"
         >
-          Back to Arcade
+          Back to Games
         </button>
       </div>
     );
