@@ -1,22 +1,22 @@
 [
   {
-    "title": "2048",
-    "url": "https://gabrielecirulli.github.io/2048/",
-    "thumbnail": "2048.webp"
+    "title": "Idle Mining Empire",
+    "url": "https://www.mortgagecalculator.org/money-games/idle-mining-empire/",
+    "thumbnail": "idlemining.webp"
   },
   {
-    "title": "Hextris",
-    "url": "https://hextris.github.io/hextris/",
-    "thumbnail": "hextris.webp"
+    "title": "Monkey Mart",
+    "url": "https://roqard.github.io/MonkeyMart/",
+    "thumbnail": "monkeymart.webp"
   },
   {
-    "title": "Paper.io 2",
-    "url": "https://html5.gamedistribution.com/f27210b130024ca684d0093d50d5b716/",
-    "thumbnail": "paperio2.webp"
+    "title": "Geometry Dash",
+    "url": "https://roqard.github.io/geometrydashonline.github.io/",
+    "thumbnail": "geodash.webp"
   },
   {
     "title": "Dino Run",
-    "url": "https://elgoog.im/t-rex/?embed",
+    "url": "https://chromedino.com/",
     "thumbnail": "dinorun.webp"
   },
   {
@@ -26,17 +26,17 @@
   },
   {
     "title": "Slope",
-    "url": "https://html5.gamedistribution.com/13bb6d6d45304b6dbe4d5c5890c2a867/",
+    "url": "https://kripeshadwani.com/slope-game/",
     "thumbnail": "slope.webp"
   },
   {
     "title": "Vex 3",
-    "url": "https://html5.gamedistribution.com/58957c5a96ca41878dcd370390f777bd/",
+    "url": "https://www.agame.com/game/vex-3",
     "thumbnail": "vex3.webp"
   },
   {
-    "title": "Basketball Stars",
-    "url": "https://html5.gamedistribution.com/3932e67a07a14e9f88f98642733d0263/",
-    "thumbnail": "basketballstars.webp"
+    "title": "Cookie Clicker",
+    "url": "https://orteil.dashnet.org/cookieclicker/",
+    "thumbnail": "cookieclicker.webp"
   }
 ]
