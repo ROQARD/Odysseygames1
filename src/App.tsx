@@ -14,32 +14,33 @@ import Cookies from './pages/Cookies';
 import Disclaimer from './pages/Disclaimer';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
-import GamePlayer from './components/GamePlayer';
+import GameDetails from './pages/GameDetails';
 import { GameWithId } from './types';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-export default function App() {
+function AppContent() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedGame, setSelectedGame] = useState<GameWithId | null>(null);
+  const navigate = useNavigate();
 
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-odyssey-bg text-gray-900 pb-20">
-        <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        
-        <main className="max-w-7xl mx-auto mt-8">
-          <Routes>
-            <Route path="/" element={<Home searchQuery={searchQuery} onPlay={setSelectedGame} />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/cookies" element={<Cookies />} />
-            <Route path="/disclaimer" element={<Disclaimer />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/faq" element={<FAQ />} />
-          </Routes>
-        </main>
+    <div className="min-h-screen bg-odyssey-bg text-gray-900 pb-20">
+      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      
+      <main className="max-w-7xl mx-auto mt-8">
+        <Routes>
+          <Route path="/" element={<Home searchQuery={searchQuery} onPlay={(game) => navigate(`/game/${game.id}`)} />} />
+          <Route path="/game/:gameId" element={<GameDetails />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
+        </Routes>
+      </main>
 
-        <footer className="mt-20 border-t border-gray-200/60 pt-16 pb-12 px-6">
+      <footer className="mt-20 border-t border-gray-200/60 pt-16 pb-12 px-6">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-left">
             <div className="md:col-span-2 space-y-4">
               <Link to="/" className="text-xl font-display font-black text-odyssey-accent tracking-[0.2em] uppercase">ODYSSEY GAMES</Link>
@@ -75,10 +76,14 @@ export default function App() {
             </p>
           </div>
         </footer>
-
-        {/* Game Player Modal */}
-        <GamePlayer game={selectedGame} onClose={() => setSelectedGame(null)} />
       </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }

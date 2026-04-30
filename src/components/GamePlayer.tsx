@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Maximize2, RotateCcw } from 'lucide-react';
+import { X, Maximize2, RotateCcw, ChevronLeft } from 'lucide-react';
 import { Game } from '../types';
 import { useState } from 'react';
 
@@ -24,6 +24,13 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
         {/* Header */}
         <div className="glass-panel flex items-center justify-between px-6 py-3 border-b border-gray-200/50">
           <div className="flex items-center gap-3">
+            <button 
+              onClick={onClose}
+              className="p-2 -ml-2 text-gray-500 hover:text-gray-900 transition-colors"
+              title="Back to Arcade"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
             <img 
               src={`/data/thumbs/${game.thumbnail}`} 
               alt={game.title} 
@@ -69,8 +76,10 @@ export default function GamePlayer({ game, onClose }: GamePlayerProps) {
             <iframe
               src={game.url}
               className={`w-full h-full rounded-3xl shadow-2xl border-none ${isFullscreen ? 'rounded-none' : ''}`}
+              allow="autoplay; fullscreen; keyboard-lock; gamepad"
               allowFullScreen
               title={game.title}
+              referrerPolicy="no-referrer"
             />
           </div>
         </div>
