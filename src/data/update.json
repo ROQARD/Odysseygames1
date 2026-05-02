@@ -1,7 +1,7 @@
 {
-  "id": "v1.0.0",
+  "id": "v1.1 Beta",
   "enabled": true,
   "title": "Welcome to Odyssey Games!",
-  "description": "We've added a new 'Recently Played' section and improved our navigation. Enjoy the best HTML5 games in one place!",
-  "buttonText": "Got it"
+  "description": "We've added a new 'Recently Played' section and fixed broken games. Enjoy all the best games in one place!",
+  "buttonText": "OK"
 }
