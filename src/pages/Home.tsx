@@ -1,19 +1,29 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import GameGrid from '../components/GameGrid';
 import gamesDataRaw from '../data/games.json';
-import { Game } from '../types';
+import { Game, GameWithId } from '../types';
+import { getRecentlyPlayed } from '../lib/history';
+import { Clock } from 'lucide-react';
+import UpdateModal from '../components/UpdateModal';
 
 const gamesData = (gamesDataRaw as Game[]).map(game => ({
   ...game,
   id: game.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-}));
+})) as GameWithId[];
 
 interface HomeProps {
   searchQuery: string;
-  onPlay: (game: typeof gamesData[0]) => void;
+  onPlay: (game: GameWithId) => void;
 }
 
 export default function Home({ searchQuery, onPlay }: HomeProps) {
+  const [recentlyPlayed, setRecentlyPlayed] = useState<GameWithId[]>([]);
+  const [showUpdate, setShowUpdate] = useState(true);
+
+  useEffect(() => {
+    setRecentlyPlayed(getRecentlyPlayed());
+  }, []);
+
   const filteredGames = useMemo(() => {
     return gamesData.filter((game) => {
       const matchesSearch = game.title.toLowerCase().includes(searchQuery.toLowerCase());
@@ -22,21 +32,42 @@ export default function Home({ searchQuery, onPlay }: HomeProps) {
   }, [searchQuery]);
 
   return (
-    <div className="space-y-8 px-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-display font-black tracking-tight text-gray-900">
-          Games <span className="text-odyssey-accent">Library</span>
-        </h2>
-        <div className="hidden md:block">
-          <span className="text-[10px] text-gray-400 font-mono tracking-[0.3em] uppercase">
-            {filteredGames.length} Games Ready
-          </span>
-        </div>
-      </div>
+    <div className="space-y-12 px-6 pb-12">
+      {showUpdate && <UpdateModal onClose={() => setShowUpdate(false)} />}
+      
+      {recentlyPlayed.length > 0 && !searchQuery && (
+        <section className="space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-odyssey-accent/10 rounded-lg">
+              <Clock className="w-5 h-5 text-odyssey-accent" />
+            </div>
+            <h2 className="text-2xl font-display font-black tracking-tight text-gray-900">
+              Recently <span className="text-odyssey-accent">Played</span>
+            </h2>
+          </div>
+          
+          <div className="-mx-6">
+            <GameGrid games={recentlyPlayed} onGameSelect={onPlay} />
+          </div>
+        </section>
+      )}
 
-      <div className="-mx-6">
-        <GameGrid games={filteredGames} onGameSelect={onPlay} />
-      </div>
+      <section className="space-y-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-3xl font-display font-black tracking-tight text-gray-900">
+            Games <span className="text-odyssey-accent">Library</span>
+          </h2>
+          <div className="hidden md:block">
+            <span className="text-[10px] text-gray-400 font-mono tracking-[0.3em] uppercase">
+              {filteredGames.length} Games Ready
+            </span>
+          </div>
+        </div>
+
+        <div className="-mx-6">
+          <GameGrid games={filteredGames} onGameSelect={onPlay} />
+        </div>
+      </section>
     </div>
   );
 }

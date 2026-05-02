@@ -2,7 +2,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Game, GameWithId } from '../types';
 import GamePlayer from '../components/GamePlayer';
 import gamesDataRaw from '../data/games.json';
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
+import { addRecentlyPlayed } from '../lib/history';
 
 const gamesData = (gamesDataRaw as Game[]).map(game => ({
   ...game,
@@ -16,6 +17,12 @@ export default function GameDetails() {
   const game = useMemo(() => 
     gamesData.find(g => g.id === gameId),
   [gameId]);
+
+  useEffect(() => {
+    if (game) {
+      addRecentlyPlayed(game);
+    }
+  }, [game]);
 
   if (!game) {
     return (
