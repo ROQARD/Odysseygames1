@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, ChangeEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Rocket, Search, Gamepad2, ChevronDown, ExternalLink } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import linksData from '../data/links.json';
 
 interface NavbarProps {
@@ -13,6 +13,7 @@ export default function Navbar({ searchQuery, setSearchQuery }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -30,6 +31,14 @@ export default function Navbar({ searchQuery, setSearchQuery }: NavbarProps) {
       window.open(url, '_blank');
     } else {
       navigate(url);
+    }
+  };
+
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    if (value && location.pathname !== '/') {
+      navigate('/');
     }
   };
 
@@ -61,7 +70,7 @@ export default function Navbar({ searchQuery, setSearchQuery }: NavbarProps) {
         <input
           type="text"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={handleSearchChange}
           placeholder="What are we playing today?"
           className="w-full bg-gray-100 border-none rounded-2xl py-3 pl-11 pr-4 text-sm text-gray-900 focus:ring-2 focus:ring-odyssey-accent transition-all placeholder:text-gray-400 shadow-sm"
         />

@@ -24,18 +24,28 @@ export default function Home({ searchQuery, onPlay }: HomeProps) {
     setRecentlyPlayed(getRecentlyPlayed());
   }, []);
 
-  const filteredGames = useMemo(() => {
-    return gamesData.filter((game) => {
-      const matchesSearch = game.title.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesSearch;
-    });
-  }, [searchQuery]);
+  const { displayRecentlyPlayed, libraryGames } = useMemo(() => {
+    if (searchQuery.trim()) {
+      return {
+        displayRecentlyPlayed: [],
+        libraryGames: gamesData.filter((game) =>
+          game.title.toLowerCase().includes(searchQuery.toLowerCase())
+        ),
+      };
+    }
+
+    const recentIds = new Set(recentlyPlayed.map((g) => g.id));
+    return {
+      displayRecentlyPlayed: recentlyPlayed,
+      libraryGames: gamesData.filter((game) => !recentIds.has(game.id)),
+    };
+  }, [searchQuery, recentlyPlayed]);
 
   return (
     <div className="space-y-12 px-6 pb-12">
       {showUpdate && <UpdateModal onClose={() => setShowUpdate(false)} />}
       
-      {recentlyPlayed.length > 0 && !searchQuery && (
+      {displayRecentlyPlayed.length > 0 && (
         <section className="space-y-6">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-odyssey-accent/10 rounded-lg">
@@ -47,7 +57,7 @@ export default function Home({ searchQuery, onPlay }: HomeProps) {
           </div>
           
           <div className="-mx-6">
-            <GameGrid games={recentlyPlayed} onGameSelect={onPlay} />
+            <GameGrid games={displayRecentlyPlayed} onGameSelect={onPlay} />
           </div>
         </section>
       )}
@@ -55,17 +65,21 @@ export default function Home({ searchQuery, onPlay }: HomeProps) {
       <section className="space-y-6">
         <div className="flex items-center justify-between">
           <h2 className="text-3xl font-display font-black tracking-tight text-gray-900">
-            Games <span className="text-odyssey-accent">Library</span>
+            {searchQuery ? (
+              <>Search <span className="text-odyssey-accent">Results</span></>
+            ) : (
+              <>Games <span className="text-odyssey-accent">Library</span></>
+            )}
           </h2>
           <div className="hidden md:block">
             <span className="text-[10px] text-gray-400 font-mono tracking-[0.3em] uppercase">
-              {filteredGames.length} Games Ready
+              {libraryGames.length} {searchQuery ? 'Results' : 'Games Ready'}
             </span>
           </div>
         </div>
 
         <div className="-mx-6">
-          <GameGrid games={filteredGames} onGameSelect={onPlay} />
+          <GameGrid games={libraryGames} onGameSelect={onPlay} />
         </div>
       </section>
     </div>
