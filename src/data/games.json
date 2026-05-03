@@ -92,12 +92,12 @@
   {
     "title": "Age Of War 1",
     "url": "https://github.com/salmon-67/Odysseygames/edit/main/src/data/games.json",
-    "thumbnail": "ageofwar1.webp"
+    "thumbnail": "ageofwar.webp"
   },
   {
     "title": "Age Of War 2",
     "url": "https://offline-html-games-pack-three.vercel.app/offline/ageofwar2.html",
-    "thumbnail": "ageofwar2.webp"
+    "thumbnail": "ageofwar.webp"
   },
   {
     "title": "Angry Birds",
@@ -133,5 +133,6 @@
     "title": "Bloons TD5",
     "url": "https://offline-html-games-pack-three.vercel.app/offline/bloonsTD5.html",
     "thumbnail": "bloons.webp"
-  },
+  }
+]
   
