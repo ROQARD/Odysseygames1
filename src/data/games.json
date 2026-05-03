@@ -115,13 +115,13 @@
     "thumbnail": "angrybirds.webp"
   },
   {
-    "title": "Minecraft",
-    "url": "https://offline-html-games-pack-three.vercel.app/offline/1.8.html",
-    "thumbnail": "mccraft.webp"
+    "title": "Awesome Tanks 1",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/awesometanks.html",
+    "thumbnail": "awesometanks.webp"
   },
   {
-    "title": "8 Ball Classic",
-    "url": "https://offline-html-games-pack-three.vercel.app/offline/8ballclassic.html",
-    "thumbnail": "cookieclicker.webp"
+    "title": "Awesome Tanks 2",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/awesometanks2.html",
+    "thumbnail": "awesometanks.webp"
   }
 ]
