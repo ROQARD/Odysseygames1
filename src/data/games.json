@@ -90,14 +90,14 @@
     "thumbnail": "agario.webp"
   },
   {
-    "title": "Subway Surfers",
-    "url": "https://monkeymartfree.com/play/subway-surfers/",
-    "thumbnail": "subwaysurfers.webp"
+    "title": "Age Of War 1",
+    "url": "https://github.com/salmon-67/Odysseygames/edit/main/src/data/games.json",
+    "thumbnail": "ageofwar1.webp"
   },
   {
-    "title": "Minecraft",
-    "url": "https://offline-html-games-pack-three.vercel.app/offline/1.8.html",
-    "thumbnail": "mccraft.webp"
+    "title": "Age Of War 2",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/ageofwar2.html",
+    "thumbnail": "ageofwar2.webp"
   },
   {
     "title": "8 Ball Classic",
