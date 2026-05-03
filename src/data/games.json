@@ -123,5 +123,30 @@
     "title": "Awesome Tanks 2",
     "url": "https://offline-html-games-pack-three.vercel.app/offline/awesometanks2.html",
     "thumbnail": "awesometanks.webp"
-  }
+  },
+  {
+    "title": "Backrooms [PC Only]",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/angrybirds.html",
+    "thumbnail": "angybirds.webp"
+  },
+  {
+    "title": "",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/backrooms.html",
+    "thumbnail": "angrybirds.webp"
+  },
+  {
+    "title": "",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/angrybirdsspace.html",
+    "thumbnail": "backrooms.webp"
+  },
+  {
+    "title": "",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/awesometanks.html",
+    "thumbnail": "awesometanks.webp"
+  },
+  {
+    "title": "",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/awesometanks2.html",
+    "thumbnail": "awesometanks.webp"
+  },
 ]
