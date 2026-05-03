@@ -127,26 +127,11 @@
   {
     "title": "Backrooms [PC Only]",
     "url": "https://offline-html-games-pack-three.vercel.app/offline/angrybirds.html",
-    "thumbnail": "angybirds.webp"
+    "thumbnail": "backrooms.webp"
   },
   {
     "title": "Bloons TD5",
     "url": "https://offline-html-games-pack-three.vercel.app/offline/bloonsTD5.html",
     "thumbnail": "bloons.webp"
   },
-  {
-    "title": "",
-    "url": "https://offline-html-games-pack-three.vercel.app/offline/angrybirdsspace.html",
-    "thumbnail": "backrooms.webp"
-  },
-  {
-    "title": "",
-    "url": "https://offline-html-games-pack-three.vercel.app/offline/awesometanks.html",
-    "thumbnail": "awesometanks.webp"
-  },
-  {
-    "title": "",
-    "url": "https://offline-html-games-pack-three.vercel.app/offline/awesometanks2.html",
-    "thumbnail": "awesometanks.webp"
-  }
-]
+  
