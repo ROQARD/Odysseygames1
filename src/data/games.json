@@ -78,5 +78,52 @@
     "title": "8 Ball Classic",
     "url": "https://offline-html-games-pack-three.vercel.app/offline/8ballclassic.html",
     "thumbnail": "cookieclicker.webp"
+  },
+    {
+    "title": "12 Mini Battles [2 Player]",
+    "url": "  {
+    "title": "Bob The Robber",
+    "url": "https://monkeymartfree.com/play/bob-the-robber-4/",
+    "thumbnail": "bobtherobber.webp"
+  },
+  {
+    "title": "Among Us",
+    "url": "https://monkeymartfree.com/play/bob-the-robber-4/",
+    "thumbnail": "amongus.webp"
+  },
+  {
+    "title": "Subway Surfers",
+    "url": "https://monkeymartfree.com/play/subway-surfers/",
+    "thumbnail": "subwaysurfers.webp"
+  },
+  {
+    "title": "Minecraft",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/1.8.html",
+    "thumbnail": "mccraft.webp"
+  },
+  {
+    "title": "8 Ball Classic",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/12minibattles.html",
+    "thumbnail": "8ball.webp"
+  },
+  {
+    "title": "Among Us",
+    "url": "https://monkeymartfree.com/play/bob-the-robber-4/",
+    "thumbnail": "amongus.webp"
+  },
+  {
+    "title": "Subway Surfers",
+    "url": "https://monkeymartfree.com/play/subway-surfers/",
+    "thumbnail": "subwaysurfers.webp"
+  },
+  {
+    "title": "Minecraft",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/1.8.html",
+    "thumbnail": "mccraft.webp"
+  },
+  {
+    "title": "8 Ball Classic",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/8ballclassic.html",
+    "thumbnail": "cookieclicker.webp"
   }
 ]
