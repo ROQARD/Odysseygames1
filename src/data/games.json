@@ -133,6 +133,11 @@
     "title": "Bloons TD5",
     "url": "https://offline-html-games-pack-three.vercel.app/offline/bloonsTD5.html",
     "thumbnail": "bloons.webp"
+  },
+  {
+    "title": "Candy Crush",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/candycrush.html",
+    "thumbnail": "candycrush.webp"
   }
 ]
   
