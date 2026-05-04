@@ -158,5 +158,10 @@
     "title": "GeoGuesser",
     "url": "https://geoguess.neocities.org/",
     "thumbnail": "geoguess.webp"
+  },
+  {
+    "title": "Flappy Bird",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/flappybird.html",
+    "thumbnail": "flappybird.webp"
   }
 ]
