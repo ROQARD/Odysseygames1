@@ -155,8 +155,8 @@
     "thumbnail": "driftboss.webp"
   },
   {
-    "title": "Chess",
-    "url": "https://offline-html-games-pack-three.vercel.app/offline/chess.html",
-    "thumbnail": "chess.webp"
+    "title": "GeoGuesser",
+    "url": "https://geoguess.neocities.org/street-view",
+    "thumbnail": "geoguess.webp"
   }
 ]
