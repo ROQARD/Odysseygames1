@@ -148,5 +148,15 @@
     "title": "Chess",
     "url": "https://offline-html-games-pack-three.vercel.app/offline/chess.html",
     "thumbnail": "chess.webp"
+  },
+  {
+    "title": "Drift Boss",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/driftboss.htm",
+    "thumbnail": "driftboss.webp"
+  },
+  {
+    "title": "Chess",
+    "url": "https://offline-html-games-pack-three.vercel.app/offline/chess.html",
+    "thumbnail": "chess.webp"
   }
 ]
