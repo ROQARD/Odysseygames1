@@ -1,6 +1,6 @@
 {
   "id": "v1.1",
-  "enabled": true,
+  "enabled" false,
   "title": "Odyssey Games New Update!",
   "description": "We've added dozens of new games. Enjoy all the best games in one place!",
   "buttonText": "Got it"
